@@ -14,7 +14,8 @@ public class MainMenu {
                     + "0 - Sair\n\n"
                     + "Escolha uma opção:";
 
-            String entrada = JOptionPane.showInputDialog(null, menu, "Menu - Exemplos do Professor",JOptionPane.QUESTION_MESSAGE);
+            String entrada = JOptionPane.showInputDialog(null, menu, "Menu - Exemplos do Professor",
+                    JOptionPane.QUESTION_MESSAGE);
 
             if (entrada == null) {
                 break;
@@ -24,7 +25,8 @@ public class MainMenu {
 
             switch (opcao) {
                 case 1:
-                    int n1 = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor de N:"));
+                    int n1 = Integer.parseInt(JOptionPane.showInputDialog("Valor a ser iterado:"));
+                    listar(n1);
                     break;
 
                 case 2:
@@ -40,7 +42,8 @@ public class MainMenu {
                     break;
 
                 case 5:
-                    int n5 = Integer.parseInt(JOptionPane.showInputDialog("Digite o número para o Fatorial Recursivo:"));
+                    int n5 = Integer
+                            .parseInt(JOptionPane.showInputDialog("Digite o número para o Fatorial Recursivo:"));
                     break;
 
                 case 0:
@@ -52,5 +55,21 @@ public class MainMenu {
             }
 
         } while (opcao != 0);
+    }
+
+    public static void listar(int n) {
+        int valor[] = new int[n];
+        String resultado = "";
+
+        for (int i = 0; i < n; i++) {
+            valor[i] = i + 1;
+        }
+
+        for (int num : valor) {
+            Integer.toString(num);
+            resultado += "Número: " + num + "\n";
+        }
+
+        JOptionPane.showMessageDialog(null, resultado);
     }
 }

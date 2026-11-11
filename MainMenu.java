@@ -9,8 +9,8 @@ public class MainMenu {
                     + "1 - Listar (Iterativo)\n"
                     + "2 - Listar Recursivo 1 (Decrescente)\n"
                     + "3 - Listar Recursivo 2 (Crescente)\n"
-                    + "4 - Fatorial (Iterativo)\n"
-                    + "5 - Fatorial (Recursivo)\n"
+                    + "4 - Fatorial Duplo (recursivo)\n"
+                    + "5 - Fibonacci (Recursivo)\n"
                     + "0 - Sair\n\n"
                     + "Escolha uma opção:";
 
@@ -39,15 +39,19 @@ public class MainMenu {
 
                 case 4:
                     int n4 = Integer.parseInt(JOptionPane.showInputDialog("Digite o número para o Fatorial:"));
+                    FatDuplo.exibeResultado(FatDuplo.fat(n4));
                     break;
-
+                    
                 case 5:
-                    int n5 = Integer
-                            .parseInt(JOptionPane.showInputDialog("Digite o número para o Fatorial Recursivo:"));
+                    int n5 = Integer.parseInt(JOptionPane.showInputDialog("Digite o número o Fibonacci:"));
+                    int limite = Integer.parseInt(JOptionPane.showInputDialog("Digite o limite de Termos"));
+                    String msg = "Termo " + n5 + ": " + Fibonacci.fib(n5)
+                       + "\nSérie: " + Fibonacci.serie(limite);
+                     JOptionPane.showMessageDialog(null, msg);
                     break;
-
                 case 0:
                     JOptionPane.showMessageDialog(null, "Encerrando o programa.");
+                   
                     break;
 
                 default:

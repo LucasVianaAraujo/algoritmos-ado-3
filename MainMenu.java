@@ -7,7 +7,7 @@ public class MainMenu {
         do {
             String menu = "=== MENU PRINCIPAL ===\n\n"
                     + "1 - Listar (Iterativo)\n"
-                    + "2 - Listar Recursivo 1 (Decrescente)\n"
+                    + "2 - Somar Recursivo (entre X e Y)\n"
                     + "3 - Listar Recursivo 2 (Crescente)\n"
                     + "4 - Fatorial Duplo (recursivo)\n"
                     + "5 - Fibonacci (Recursivo)\n"
@@ -30,7 +30,15 @@ public class MainMenu {
                     break;
 
                 case 2:
-                    int n2 = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor de N:"));
+                    double x = Double.parseDouble(JOptionPane.showInputDialog("Digite o valor de X:").replace(",", "."));
+                    double y = Double.parseDouble(JOptionPane.showInputDialog("Digite o valor de Y:").replace(",", "."));
+                    if (x > y) {
+                        double aux = x;
+                        x = y;
+                        y = aux;
+                    }
+                    double soma = somar(x, y);
+                    JOptionPane.showMessageDialog(null, "Soma de " + x + " até " + y + " = " + soma);
                     break;
 
                 case 3:
@@ -75,5 +83,13 @@ public class MainMenu {
         }
 
         JOptionPane.showMessageDialog(null, resultado);
+    }
+
+    // Soma recursiva enquanto não passar de y
+    public static double somar(double x, double y) {
+        if (x > y) {          // passar do limite, não soma mais nada
+            return 0;
+        }
+        return x + somar(x + 1, y);  // passo recursivo: soma x e chama para o próximo
     }
 }

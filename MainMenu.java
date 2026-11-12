@@ -43,6 +43,7 @@ public class MainMenu {
 
                 case 3:
                     int n3 = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor de N:"));
+                    JOptionPane.showMessageDialog(null, listarRecursivo(n3));
                     break;
 
                 case 4:
@@ -84,6 +85,14 @@ public class MainMenu {
         }
 
         JOptionPane.showMessageDialog(null, resultado);
+    }
+
+    // Lista de 1 até N em ordem crescente (recursivo)
+    public static String listarRecursivo(int n) {
+        if (n < 1) {
+            return "";
+        }
+        return listarRecursivo(n - 1) + "Número: " + n + "\n";
     }
 
     // Soma recursiva enquanto não passar de y

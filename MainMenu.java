@@ -47,16 +47,17 @@ public class MainMenu {
 
                 case 4:
                     int n4 = Integer.parseInt(JOptionPane.showInputDialog("Digite o número para o Fatorial:"));
-                    FatDuplo.exibeResultado(FatDuplo.fat(n4));
+                    exibeResultado(fat(n4));
                     break;
                     
                 case 5:
                     int n5 = Integer.parseInt(JOptionPane.showInputDialog("Digite o número o Fibonacci:"));
                     int limite = Integer.parseInt(JOptionPane.showInputDialog("Digite o limite de Termos"));
-                    String msg = "Termo " + n5 + ": " + Fibonacci.fib(n5)
-                       + "\nSérie: " + Fibonacci.serie(limite);
+                    String msg = "Termo " + n5 + ": " + fib(n5)
+                       + "\nSérie: " + serie(limite);
                      JOptionPane.showMessageDialog(null, msg);
                     break;
+
                 case 0:
                     JOptionPane.showMessageDialog(null, "Encerrando o programa.");
                    
@@ -92,4 +93,38 @@ public class MainMenu {
         }
         return x + somar(x + 1, y);  // passo recursivo: soma x e chama para o próximo
     }
+
+    // Fibonacci
+    public static int fib(int num){
+        int limite = 100;
+        if(num == 0){
+            return 0;
+        }else if(num == 1){
+            return 1;
+        }
+        return fib(num-1) + fib(num-2);
+        
+    }
+
+    public static String serie (int limite){
+          String resultado = " ";
+        for (int i = 0; i < limite; i++) {
+            resultado += fib(i) + " ";
+        }
+        return resultado;
+    }
+    //Termino
+
+    //Fatorial Duplo 
+        public static int fat(int num) {
+        if (num <= 1) {
+            return 1;
+        }
+        return num * fat(num - 2);
+    }
+
+    public static void exibeResultado(int num){
+        JOptionPane.showMessageDialog(null,"O Resultado do Fatorial é: "+num);
+    }
+    //Termino
 }
